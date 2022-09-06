@@ -7,7 +7,7 @@ html {
 p { margin: 0px; }
 
 .cover {
-    background-image: url("./Images/main_title.jpg");
+    background-image: url("../Images/main_title.jpg");
     background-position: center;
     background-size: cover;
     border:black;
