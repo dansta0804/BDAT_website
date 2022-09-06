@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <meta charset = "utf-8"/>
+    <link rel = "stylesheet" href = "CSS_styles/styles.css">
+    <link rel="icon" href="CSS_styles/Images/alpha_beta2.jpg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa Slab One">
+    <script type="text/javascript" src="JS_functions.js"></script>
+    <title>BDAT - Tools</title>
+    <body>
+        <div class="cover"></div>
+        <div class="cover_text">
+            <p class="page_title_style">BDAT</p>
+            <p class="acronym_expl_style">Biological Tools For Analysis</p>
+        </div>
+        <div class = "menu_bar">
+            <a href="Website.html">Main</a>
+            <a href="model_organisms.html">Model organisms</a>
+            <a href="tools.html">Tools</a>
+            <div class="nav_right">
+                <a onclick="openFormLogin()" style="cursor:pointer" id="login">Log In</a>
+            </div>
+        </div>
+
+        <div class="form_style login_frame" id="myFormLogin">
+          <form action="/action_page.php">
+            <div class="form_text">      
+                <h3><center>Log in to your account:</center></h3>
+                <label for="email" class="labels"><b>Email:</b></label>
+                <div id="outer_fields">
+                  <input class="inner" style="background-color:rgb(255, 249, 244)" type="text" placeholder="Enter your email..." name="email">
+                </div>
+                <label for="psw" class="labels"><b>Password:</b></label>
+                <div id="outer_fields">
+                  <input style="background-color:rgb(255, 249, 244)" type="password" placeholder="Enter your password..." name="password">
+                </div>
+                <div id="outer">
+                    <div class="inner"><button type="submit" class="login">Login</button></div>
+                    <div class="inner"><button type="button" class="cancel" onclick="closeFormLogin()">Close</button></div>
+                </div>
+            </div>
+          </form>
+        </div>
+        <div id="tool_options">
+          <div id="tools" class="tool_frame">
+            <button id="btn1" type="submit" class="tools_inner">1</button>
+            <button id="btn2" type="submit" class="tools_inner">2</button>
+            <button id="btn3" type="submit" class="tools_inner">3</button>
+            <button id="btn4" type="submit" class="tools_inner">4</button>
+            <button id="btn5" type="submit" class="tools_inner">5</button>
+          </div>
+        </div>
+        <script>
+
+        
+        
+      </script>
+    </body>
+</html>

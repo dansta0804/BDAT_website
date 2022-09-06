@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <meta charset = "utf-8"/>
+    <link rel="stylesheet" href = "CSS_styles/styles.css">
+    <link rel="icon" href="CSS_styles/Images/alpha_beta2.jpg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa Slab One">
+    <script type="text/javascript" src="JS_functions.js"></script>
+    <title>BDAT - Data Uploads</title>
+    <body>
+        <div class="cover"></div>
+        <div class="cover_text">
+            <p class="page_title_style">BDAT</p>
+            <p class="acronym_expl_style">Upload Data About Proteins</p>
+        </div>
+        
+        <!-- MENU BAR -->
+        <div class="menu_bar" id="menu">
+            <a href="Website.html">Main</a>
+            <a href="model_organisms.html">Model organisms</a>
+            <a href="tools.html">Tools</a>
+            <a href="SearchDatabase.html">Search</a>
+        </div>
+        <!-- SEARCH FORM -->
+        <form action="http://localhost/cgi_bin/upload_data.php">
+            <div class="upload_frame">
+                <!-- PDB ID -->
+                <label for="pdb_id">Define PDB id: </label><br>
+                <div style="padding-top:5px"></div>
+                <div id="outer_fields">
+                    <input type="text" name="pdb_id" id="pdb_id" style="width:50%" placeholder="PDB identification code..."><br>
+                </div>
+                <div style="padding-top:25px"></div>
+
+                <!-- BIOLOGICAL FUNCTION -->
+                <label>Specify biological function: </label><br>
+                <div style="padding-top:15px"></div>
+                <label class="container protein_class_style" id="antibody">Antibodies
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container protein_class_style" id="contractile">Contractile proteins
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container protein_class_style" id="hormon">Hormonal proteins
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container protein_class_style" id="structure">Structural proteins
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container protein_class_style" id="storage">Storage proteins
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container protein_class_style" id="transport">Transport proteins
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container protein_class_style" id="enzyme">Enzymes
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <div style="padding-top:25px"></div>
+
+                <!-- FOLD CLASS -->
+                <label>Specify fold class: </label><br>
+                <div style="padding-top:15px"></div>
+                <label class="radio_container protein_class_style">all-α
+                    <input type="radio" name="radio">
+                    <span class="radio_check"></span>
+                </label>
+
+                <label class="radio_container protein_class_style">all-β
+                    <input type="radio" name="radio">
+                    <span class="radio_check"></span>
+                </label>
+
+                <label class="radio_container protein_class_style">α+β
+                    <input type="radio" name="radio">
+                    <span class="radio_check"></span>
+                </label>
+
+                <label class="radio_container protein_class_style">α/β
+                    <input type="radio" name="radio">
+                    <span class="radio_check"></span>
+                </label>
+                <div style="padding-top:25px"></div>
+
+                <!-- PUBLICATION DATA -->
+                <label>Enter publication data:</label><br>
+                <div style="padding-top:15px"></div>
+                <label for="authors">Authors: </label><br>
+                <div id="outer_fields">
+                    <input type="text" name="authors" id="authors" placeholder="Publication authors..."><br>
+                </div>
+                <label for="article">Article: </label><br>
+                <div id="outer_fields">
+                    <input type="text" name="article" id="article" placeholder="Specify the title of the article..."><br>
+                </div>
+                <label for="article">Publication date: </label><br>
+                <div id="outer_fields">
+                    <input type="text" name="article_date" id="article_date" style="width:50%" placeholder="E.g. 2010-11-30"><br>
+                </div>
+                <label for="article">DOI: </label><br>
+                <div id="outer_fields">
+                    <input type="text" name="doi" id="doi" placeholder="Specify DOI identifier..."><br>
+                </div>
+            </div>
+        </form>
+    <script>
+    </script>    
+    </body>
+</html>

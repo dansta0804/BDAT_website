@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href = "CSS_styles/styles.css">
+    <link rel="icon" href="CSS_styles/Images/alpha_beta2.jpg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa Slab One">
+    <script type="text/javascript" src="JS_functions.js"></script>
+    <title>BDAT - Database Search</title>
+    <body>
+        <div class="cover"></div>
+        <div class="cover_text">
+            <p class="page_title_style">BDAT</p>
+            <p class="acronym_expl_style">Search Data About Proteins</p>
+        </div>
+        
+        <!-- MENU BAR -->
+        <div class="menu_bar" id="menu">
+            <a href="Website.html">Main</a>
+            <a href="model_organisms.html">Model organisms</a>
+            <a href="tools.html">Tools</a>
+            <a href="UploadData.html">Upload</a>
+        </div>
+        <!-- SEARCH FORM -->
+        <form action="http://localhost/cgi_bin/fetch_data.php">
+            <div class="search_frame">
+
+                <!-- PROTEIN CLASSES BASED ON BIOLOGICAL FUNCTION -->
+                <p class="collapsible" id="function_classes">Protein classes based on biological function:</p>
+                    <div class="content">
+                        <label class="container protein_class_style" id="antibody">Antibodies
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container protein_class_style" id="contractile">Contractile proteins
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container protein_class_style" id="hormon">Hormonal proteins
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container protein_class_style" id="structure">Structural proteins
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container protein_class_style" id="storage">Storage proteins
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container protein_class_style" id="transport">Transport proteins
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container protein_class_style" id="enzyme">Enzymes
+                            <input type="checkbox" onclick="showEnzymeTypes()" id="enzyme_check">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+                    <!-- ENZYME TYPES (APPEARS ONCLICK) -->
+                    <p class="collapsible" style="display:none" id="enzyme_types">Enzyme types:</p>
+                    <div class="content">
+                        <label class="container protein_class_style" id="enzyme1">Oxidoreductases
+                            <input type="checkbox">
+                            <span class="checkmark" id="mark1"></span>
+                        </label>
+                        <label class="container protein_class_style" id="enzyme2">Transferases
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container protein_class_style" id="enzyme3">Hydrolases
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container protein_class_style" id="enzyme4">Lyases
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container protein_class_style" id="enzyme5">Isomerases
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container protein_class_style" id="enzyme6">Ligases
+                            <input type="checkbox">
+                            <span class="checkmark" id="mark1"></span>
+                        </label>
+                    </div>
+
+                    <!-- PROTEIN FOLD CLASSES -->
+                    <p class="collapsible" id="fold_class">Protein fold class:</p>
+                    <div class="content">
+                        <label class="container protein_class_style" id="ALL_ALPHA">all-α<div style="color:#af3d21; font-size:small">(the secondary structure is composed entirely of α-helices)</div>
+                            <input type="checkbox" id="all_alpha" onclick="showStructure(id)">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container protein_class_style" id="ALL_BETA">all-β<div style="color:#af3d21; font-size:small">(the secondary structure is composed entirely of β-helices)</div>
+                            <input type="checkbox" id="all_beta" onclick="showStructure(id)">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container protein_class_style" id="ALPHA_BETA1">α+β<div style="color:#af3d21; font-size:small">(the secondary structure is composed of α-helices and β-strands that occur separately along the backbone)</div>
+                            <input type="checkbox" id="alpha_beta1" onclick="showStructure(id)">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container protein_class_style" id="ALPHA_BETA2">α/β<div style="color:#af3d21; font-size:small">(the secondary structure is composed of alternating α-helices and β-strands along the backbone)</div>
+                            <input type="checkbox" id="alpha_beta2" onclick="showStructure(id)">
+                            <span class="checkmark" id="check"></span>
+                        </label>
+                    </div>
+
+                    <!-- STRUCTURES OF DIFFERENT FOLD CLASSES (APPEARS ONCLICK) -->
+                    <p class="collapsible" style="display:none" id="fold_classes">Fold class example:</p>
+                    <div class="content">
+                        <img src="CSS_styles/Images/all_alpha.jpg" style="display:none" alt="all-α structure" id="all_alpha2" class="image">
+                        <img src="CSS_styles/Images/all_beta.jpg" style="display:none" alt="all-β structure" id="all_beta2" class="image">
+                        <img src="CSS_styles/Images/alpha_beta1.jpg" style="display:none" alt="α+β structure" id="alpha_beta12" class="image">
+                        <img src="CSS_styles/Images/alpha_beta2.jpg" style="display:none" alt="α/β structure" id="alpha_beta22" class="image">
+                    </div>
+
+                    <!-- AUTHORS -->
+                    <p class="collapsible">Author:</p>
+                    <div class="content">
+                        <div id="outer_fields">
+                            <input type="text" class="inner" style="width:90%" placeholder="Search author(-s)...">
+                            <p style="text-align:left; padding-top:10px">You can enter multiple authors by separating them with ';' symbol:</p>
+                            <p style="font-style:italic; text-align:left; font-weight:bold; padding-bottom:10px">E.g. Tara Davis; Elan Eisenmesser; Michael Pierce</p>
+                        </div>
+                    </div>
+
+                    <!-- PUBLICATION DATE -->
+                    <p class="collapsible">Publication date:</p>
+                    <div class="content">
+                        <p style="padding-top:15px"></p>
+
+                        <!-- ONE YEAR RADIO BUTTON -->
+                        <label class="radio_container protein_class_style">Prefer to see publications of certain year
+                            <input type="radio" name="radio" onchange="handleChange(this);" value="one_year">
+                            <span class="radio_check"></span>
+                        </label>
+
+                        <!-- ONE YEAR SLIDER (HIDDEN BY DEFAULT) -->
+                        <div id="one_year" style="display:inline">
+                            <div id="outer_fields">
+                                <p style="padding-top:10px"></p>
+                                <input type="range" min="1900" max="2022" value=1960 class="slider" id="year" oninput="showYear()" disabled style="opacity:0.3; filter:blur(1.5px)">
+                                <p style="padding-bottom:7px"></p>
+                                <p id="year_label1" style="opacity:0.3; filter:blur(0.9px)"><b>Year: </b><span id="demo1">1960</span></p>
+                                <p style="padding-bottom:10px"></p>
+                            </div>
+                        </div>
+
+                        <!-- YEAR RANGE RADIO BUTTON -->
+                        <label class="radio_container protein_class_style">Prefer to see year range
+                            <input type="radio" name="radio" onchange="handleChange(this);" value="year_range">
+                            <span class="radio_check"></span>
+                        </label>
+
+                        <!-- YEAR RANGE SLIDER (HIDDEN BY DEFAULT) -->
+                        <div id="one_year" style="display:inline">
+                            <div id="outer_fields">
+                                <p style="padding-top:10px"></p>
+                                <input type="range" min="1900" max="2022" value=1900 class="slider" id="year_from" oninput="showYear()" disabled style="opacity:0.3; filter:blur(1.5px)">
+                                <p style="padding-bottom:7px"></p>
+                                <p id="year_label2" style="opacity:0.3; filter:blur(0.9px)"><b>From: </b><span id="demo2">1900</span></p>
+                                <p style="padding-top:10px"></p>
+                                <input type="range" min="1900" max="2022" value=1900 class="slider" id="year_to" oninput="showYear()" disabled style="opacity:0.3; filter:blur(1.5px)">
+                                <p style="padding-bottom:7px"></p>
+                                <p id="year_label3" style="opacity:0.3; filter:blur(0.9px)"><b>To: </b><span id="demo3">1900</span></p>
+                                <p style="padding-bottom:10px"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ARTICLES -->
+                    <p class="collapsible" id="articles">Articles:</p>
+                    <div class="content"></div>
+
+                    <!-- INSTITUTIONS -->
+                    <p class="collapsible">Institution:</p>
+                    <div class="content">
+                        <p style="padding-top:10px; padding-bottom:10px">Multiple institutions can be selected by pressing <i><b>ctrl</b></i> key.</p>
+                        <select name="institution" id="institution" multiple size="5">
+                            <option id="inst0" class="select_options"></option>
+                            <option id="inst1" class="select_options">◾️ Department of Chemistry, Biotechnology, and Food Science, Agricultural University of Norway</option>
+                            <option id="inst2" class="select_options">◾️ Department of Molecular and Cell Biology, University of California</option>
+                            <option id="inst3" class="select_options">◾️ Howard Hughes Medical Institute, National Jewish Medical and Research Center</option>
+                            <option id="inst4" class="select_options">◾️ Structural Genomics Consortium, University of Toronto</option>
+                            <option id="inst5" class="select_options">◾️ Department of Plant Biology, Rutgers, The State University of New Jersey</option>
+                            <option id="inst6" class="select_options">◾️ Department of Biochemistry, Albert Einstein College of Medicine</option>
+                            <option id="inst7" class="select_options">◾️ Molecular Design and Synthesis Core, Rutgers University Biomolecular Innovations Cores, Office for Research, Rutgers University</option>
+                            <option id="inst8" class="select_options">◾️ Sumitomo Chemical Co, Ltd. Environmental Health Science Laboratory</option>
+                            <option id="inst9" class="select_options">◾️ RIKEN Genomic Sciences Center</option>
+                            <option value="inst10" class="select_options" style="border-bottom:none">◾️ Max-Planck Institut für Biochemie</option>
+                        </select>
+                    </div>
+
+                    <!-- SEARCH BUTTON -->
+                    <div id="outer">
+                        <div class="inner"><button type="submit" class="protein_search">Find proteins</button></div>
+                    </div>
+            </div>
+            </div>
+        </form>
+        
+        <!-- CONTENT -->
+        <div id="content"></div>
+    <script>
+
+        
+        
+        // Perrašyti šią dalį?
+        var el = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < el.length; i++) {
+            el[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+    </script>    
+    </body>
+</html>

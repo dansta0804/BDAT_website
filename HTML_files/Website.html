@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <meta charset = "utf-8"/>
+    <link rel = "stylesheet" href = "CSS_styles/styles.css">
+    <link rel="icon" href="CSS_styles/Images/alpha_beta2.jpg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa Slab One">
+    <script type="text/javascript" src="JS_functions.js"></script>
+    <title>BDAT - Main</title>
+    <body>
+        <div class="cover"></div>
+        <div class="cover_text">
+            <p class="page_title_style">BDAT</p>
+            <p class="acronym_expl_style">Biological Data And Tools</p>
+        </div>
+        
+        <!-- MENU BAR -->
+        <div class = "menu_bar">
+            <a href="Website.html">Main</a>
+            <a href="model_organisms.html">Model organisms</a>
+            <a href="tools.html">Tools</a>
+            <a href="SearchDatabase.html">Search</a>
+            <a href="UploadData.html">Upload</a>
+            <div class="nav_right">
+                <a onclick="openFormRegisterMain()" style="cursor:pointer" id="register">Register</a>
+                <a onclick="openFormLoginMain()" style="cursor:pointer">Log In</a>
+            </div>
+        </div>
+
+        <!-- REGISTER FORM -->
+        <div class="form_style register_frame" id="myFormRegister">
+            <form action="/action_page.php">
+                <div class="form_text">
+                    <h3><center>Fill up the form to sign up:</center></h3>            
+                    <label for="name" class="labels">Name:</label><br>
+                    <div id="outer_fields">
+                      <input type="text" id="name" class="inner" name="name" placeholder="Enter your name..."><br>
+                    </div>
+                    <label for="name" class="labels">Surname:</label><br>
+                    <div id="outer_fields">
+                      <input type="text" id="surname" class="inner" name="surname" placeholder="Enter your surname..."><br>
+                    </div>
+                    <label for="name" class="labels">Gender:</label><br>
+                    <div style="margin-top:5px;"></div>
+                    <div id="outer_fields">
+                      <input type="radio" id="male" class="inner" name="gender" value="Male">
+                      <label for="male" style="font-size:17px;">Male</label>
+                      <input type="radio" id="female" class="inner special_align" name="gender" value="Female">
+                      <label for="female" style="font-size:17px;">Female</label>
+                      <input type="radio" id="other" class="inner special_align" name="gender" value="Other">
+                      <label for="other" style="font-size:17px;">Other</label><br>
+                    </div>
+                    <div style="margin-top:15px;"></div>
+                    <label for="name" class="labels">Login name:</label><br>
+                    <div id="outer_fields">
+                      <input type="text" class="inner" id="login_name" name="login_name" placeholder="Specify a login name..."><br>
+                    </div>
+                    <label for="name" class="labels">E-mail:</label><br>
+                    <div id="outer_fields">
+                      <input type="email" class="inner" id="email" name="email" placeholder="Enter your email..."><br>  
+                    </div>
+                    <label for="name" class="labels">Phone number:</label><br>
+                    <div id="outer_fields">
+                      <input type="text" class="inner" id="phone" name="phone" placeholder="Enter your phone number..."><br>
+                    </div>
+                    <label for="name" class="labels">Password:</label><br>
+                    <div id="outer_fields">
+                      <input type="password" class="inner" id="password" name="password" placeholder="Create your password..."><br>
+                    </div>
+                    <div id="outer_fields">
+                      <input type="password" class="inner" id="password_repeat" name="password_repeat" placeholder="Repeat your password..."><br>
+                    </div>
+                    <div id="outer">
+                      <div class="inner"><button type="submit" class="login">Register</button></div>
+                      <div class="inner"><button type="button" class="cancel" onclick="closeFormRegisterMain()">Close</button></div>
+                    </div>
+                </div>
+            </form>
+          </div>
+
+          <div id="LoginForm"></div>
+
+        <!-- LOGIN FORM -->
+        <div class="form_style login_frame" id="myFormLogin">
+          <form action="/action_page.php">
+            <div class="form_text">      
+                <h3><center>Log in to your account:</center></h3>
+                <label for="login_name" class="labels"><b>Login name:</b></label>
+                <div id="outer_fields">
+                  <input class="inner" style="background-color:rgb(255, 249, 244)" type="text" placeholder="Enter your login name..." name="login_name">
+                </div>
+                <label for="psw" class="labels"><b>Password:</b></label>
+                <div id="outer_fields">
+                  <input style="background-color:rgb(255, 249, 244)" type="password" placeholder="Enter your password..." name="password">
+                </div>
+                <div id="outer">
+                    <div class="inner"><button type="submit" class="login">Login</button></div>
+                    <div class="inner"><button type="button" class="cancel" onclick="closeFormLoginMain()">Close</button></div>
+                </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- CONTENT -->
+        <div id="content"></div>
+        
+        <script>
+
+        
+
+        </script>
+    </body>
+</html>
